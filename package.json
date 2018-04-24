@@ -14,5 +14,13 @@
     "watch": "nodemon server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NolanKern/AwesomeResturant.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NolanKern/AwesomeResturant/issues"
+  },
+  "homepage": "https://github.com/NolanKern/AwesomeResturant#readme"
 }

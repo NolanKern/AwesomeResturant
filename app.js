@@ -15,35 +15,20 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "home.html"));
 });
 
-app.get("/api/reserve", function(req, res) {
+app.get("/reserve", function(req, res) {
   res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
-app.get("/api/tables", function(req, res) {
+app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "tables.html"));
-});
-
-// app.get("/api/tables/:tables", function(req, res) {
-//   var chosen = req.params.tables;
-
-//   console.log(chosen);
-
-//   for (var i = 0; i < tables.length; i++) {
-//     if (chosen === tables[i].routeName) {
-//       return res.json(tables[i]);
-//     }
-//   }
-
-//   return res.json(false);
 });
 
 // Create New Reservation - takes in JSON input
 app.post("/api/tables", function(req, res) {
-  var newreserve = req.body;
-  newreserve.routeName = newreserve.name.replace(/\s+/g, "").toLowerCase();
+  let newreserve = req.body;
   console.log(newreserve);
   tables.push(newreserve);
-  res.json(newreserve);
+  return res.json(newreserve);
 });
 
 app.listen(PORT, function() {
