@@ -7,7 +7,7 @@ var path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,7 +33,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/reserve", function(req, res) {
-  res.sendFile(path.join(__dirname, "reserv.html"));
+  res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
 // Displays all characters
@@ -41,8 +41,9 @@ app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "tables.html"));
 });
 
-app.post("/reserve", function(req, res) {
-  console.log("posted new reservation");
+app.post("/api/tables", function(req, res) {
+  let reservation = req.body;
+  return res.json(reservation);
 });
 // Starts the server to begin listening
 // =============================================================
